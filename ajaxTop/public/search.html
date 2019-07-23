@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+<body>
+    <input type="text" id="txt"><span></span>
+    <p><input type="button" value="点击"></p>
+    <script>
+       var inp = document.getElementById('txt');
+       var btn = document.querySelector('input[type="button"]');
+       btn.onclick = function () {  
+           var txt = inp.value;
+           var xhr = new XMLHttpRequest();
+           xhr.open('post','/checkUser');
+           xhr.setRequestHeader('Content-Type', 'application/x-www-form-urlencoded');
+           xhr.send('username=' + txt);
+           xhr.onload = function () {  
+               if (this.response === 'true') {
+                   document.querySelector('span').innerHTML = '<font color="red">不可以</font>';
+               }else {
+                    document.querySelector('span').innerHTML = '<font color="green">可以</font>';
+               }
+           }
+       } 
+    </script>
+</body>
+</html>

@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+<body>
+
+    <p>010101010101</p>
+
+    <h1>GET方式的请求</h1>
+
+    <p>
+        <a href="./02-get.html">跳转</a>
+    </p>
+
+    <!-- action属性，表示表单提交的地址。默认跳转到当前页面 -->
+    <!-- method属性，表示表单的提交方式，默认为GET方式 -->
+    <!-- <form action="./02-get.html" method="GET">
+        <input type="text" name="username">
+        <input type="submit" value="提交">
+    </form>
+
+    <h1>POST方式的请求</h1>
+    <form action="./02-get.html" method="POST">
+        <input type="text" name="username">
+        <input type="submit" value="提交">
+    </form> -->
+    <script>
+        var xhr = new XMLHttpRequest();
+        xhr.open('get', '/time');
+        xhr.send();
+        xhr.onload = function () {  
+            console.log(this.responseText);
+            
+        }
+    </script>
+</body>
+</html>
